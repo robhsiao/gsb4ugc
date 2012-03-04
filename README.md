@@ -2,6 +2,8 @@
 This implements a toolkit for implementing the
 [Google Safe Browsing API v2](http://code.google.com/apis/safebrowsing/)
 
+Read more at [Code As Craft](http://codeascraft.etsy.com/2012/03/04/google-safe-browsing/)
+
 The lib directory contains the pieces you'll need to assemble to match
 your enivroment:
 
@@ -43,7 +45,7 @@ To make URL checker:
 
     // make the client with the pieces, and test
     $client  = new GSB_Client($storage, $network, $logger);
-    $client->lookup('A URL');
+    $client->lookup('http:// A URL /');
 
 To make a database updater:
 
