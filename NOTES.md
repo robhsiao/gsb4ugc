@@ -1,4 +1,5 @@
 
+* MAC support
 * Need a lot more in-code comments
 * How to create the database (see the schema dir)
 * Notes on MySQL vs. Sqlite3, and other database assumptions
