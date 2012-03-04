@@ -131,25 +131,25 @@ class GSB_Client {
      *
      * The function returns detailed info if the input is identified as
      * blacklisted.  Here's a sample result:<pre>
-     * 	input:
-     * 		http://malware.testing.google.test/testing/malware/
+     *  input:
+     *          http://malware.testing.google.test/testing/malware/
      *
      *  output:
-     * 		Array
-     * 		(
-     * 		    [0] => Array
-     * 		        (
-     * 		            [list_id] => 1
-     * 		            [add_chunk_num] => 40130
-     * 		            [host_key] => b2ae8c6f
-     * 		            [prefix] => 51864045
-     * 		            [match] => malware.testing.google.test/testing/malware/
-     * 		            [hash] => 518640453f8b2a5f0d43bc225152f49530be2a40bfe2bab60aaaee7a67b10890
-     * 		            [host] => testing.google.test/
-     * 		            [url] => http://malware.testing.google.test/testing/malware/ <-- this is the original input
-     * 		            [listname] => goog-malware-shavar
-     * 		        )
-     * 		)
+     *          Array
+     *          (
+     *              [0] => Array
+     *                  (
+     *                      [list_id] => 1
+     *                      [add_chunk_num] => 40130
+     *                      [host_key] => b2ae8c6f
+     *                      [prefix] => 51864045
+     *                      [match] => malware.testing.google.test/testing/malware/
+     *                      [hash] => 518640453f8b2a5f0d43bc225152f49530be2a40bfe2bab60aaaee7a67b10890
+     *                      [host] => testing.google.test/
+     *                      [url] => http://malware.testing.google.test/testing/malware/ <-- this is the original input
+     *                      [listname] => goog-malware-shavar
+     *                  )
+     *          )
      * </pre>
      *
      * @param string|array[int]string $urls - a single URL, or an array of URLs
@@ -214,13 +214,13 @@ class GSB_Client {
 
         foreach ((array) $urls as $url) {
             // first canonicalize the URLs
-            $canurl = GSB_UrlUtil::canonicalize($url);
+            $canurl = GSB_URL::canonicalize($url);
 
-            $phashes = GSB_UrlUtil::makePrefixesHashes(
+            $phashes = GSB_URL::makePrefixesHashes(
                 $canurl['host'], $canurl['path'], $canurl['query'], $canurl['is_ip']);
 
             // make hostkeys
-            $hostkeys = GSB_UrlUtil::makeHostKeyList($canurl['host'], $canurl['is_ip']);
+            $hostkeys = GSB_URL::makeHostKeyList($canurl['host'], $canurl['is_ip']);
 
             foreach ((array) $hostkeys as $hostkey) {
                 $hostkey['url'] = $url;

@@ -1,5 +1,5 @@
 <?php
-/** Quick Logger class.  Completely replaceable with apache 
+/** Quick Logger class.  Completely replaceable with apache
  *  apache log4php or equiv http://logging.apache.org/log4php/
  *
  *

@@ -4,8 +4,16 @@
  * Provides functions to "canonicalize" URL's based on the Google
  * specification.
  */
-class GSB_UrlUtil {
+class GSB_URL {
 
+    /** URL Encode using GSB definition.
+     *  unfortunately doens't match php rawurlencode,
+     *  so we have to roll our own.
+     *
+     * @param string $url -- input string
+     * @param bool $encode_special -- should we encode '#' and '%'?
+     * @return string
+     */
     public static function urlencode($url, $encode_special) {
         $out = array();
         $len = strlen($url);
@@ -46,7 +54,9 @@ class GSB_UrlUtil {
     }
 
     /**
-     * Canonicalizes a full URL according to Google's definition.
+     * Canonicalizes a full URL, using the GSB defintion
+     *  Need to hand-roll this since parse_url isn't
+     *  strict enought.
      *
      * @param string $url
      * @return a string array of canonicalized URL parts
@@ -92,7 +102,7 @@ class GSB_UrlUtil {
 
         if (is_numeric($hostname)) {
             // weird case where hostname is one integer.
-            //  some browsers (chrome)  actually accept this!
+            //  some browsers (chrome) actually accept this!
             $hostnameip = ip2long(long2ip($hostname));
         } else {
             // See if its a valid IP
