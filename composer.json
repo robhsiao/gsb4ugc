@@ -1,0 +1,9 @@
+{
+    "name": "etsy/gsb4ugc",
+    "type": "library",
+    "version": "master",
+    "description": "Google Safe Browsing batch server, client",
+    "autoload": {
+        "classmap" : ["lib/"]
+    }
+}
