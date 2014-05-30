@@ -2,6 +2,6 @@
 
 while [ 1 ]
 do
-  php -f ./updater.php
+  php -f ./update.php
   sleep 300
 done

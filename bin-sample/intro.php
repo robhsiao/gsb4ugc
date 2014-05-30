@@ -25,6 +25,6 @@ $gsblists = array('goog-malware-shavar', 'googpub-phish-shavar');
 $dbh = new PDO('mysql:host=127.0.0.1;dbname=gsb', 'root');
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$storage = new GSB_StoreDB($dbh);
+$storage = new GSB_Storage($dbh);
 $network = new GSB_Request($api);
 $logger = new GSB_Logger(5);
